@@ -97,8 +97,8 @@ func (list *Array) Remove(index int) interface{} {
 func (list *Array) resize(newCapacity int) {
 	newData := make([]interface{}, newCapacity)
 
-	for _, v := range list.data {
-		newData = append(newData, v)
+	for i := 0; i < list.size; i++ {
+		newData[i] = list.data[i]
 	}
 	list.data = newData
 }
