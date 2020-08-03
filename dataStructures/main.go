@@ -20,7 +20,7 @@ func main() {
 		{"e", 4},
 		{"f", 5},
 	}
-	list := array.NewArray()
+	list := array.NewArrayByCapacity(-6)
 
 	for _, test := range tests {
 		list.Add(test.index, test.value)

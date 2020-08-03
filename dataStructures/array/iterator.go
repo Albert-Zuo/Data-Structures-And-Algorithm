@@ -24,7 +24,7 @@ func (iterator *ListIterator) HasNext() bool {
 
 func (iterator *ListIterator) Next() (interface{}, error) {
 	if !iterator.HasNext() {
-		return nil, errors.New("No next element...")
+		return nil, errors.New("There is no next element in the current array...")
 	}
 	element, err := iterator.list.Get(iterator.currIndex)
 	iterator.currIndex++
