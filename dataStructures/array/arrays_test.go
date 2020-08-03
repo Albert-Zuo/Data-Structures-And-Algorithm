@@ -1,7 +1,6 @@
 package array
 
 import (
-	"fmt"
 	"testing"
 )
 
@@ -43,7 +42,6 @@ func TestArray_Iterator(t *testing.T) {
 	for _, value := range tests {
 		list.Append(value)
 	}
-	fmt.Println(list)
 	// 遍历删除一个元素
 	for iterator := list.Iterator(); iterator.HasNext(); {
 		next, _ := iterator.Next()

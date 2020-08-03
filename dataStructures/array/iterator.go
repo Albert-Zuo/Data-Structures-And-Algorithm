@@ -3,10 +3,10 @@ package array
 import "errors"
 
 type Iterator interface {
-	HasNext() bool                 // 是否存在元素
-	Next() (interface{}, error)    // 获取元素
-	Remove()                       // 删除元素
-	GetIndex() int                 // 获取元素索引
+	HasNext() bool              // 是否存在元素
+	Next() (interface{}, error) // 获取元素
+	Remove()                    // 删除元素
+	GetIndex() int              // 获取元素索引
 }
 
 type Iterable interface {
@@ -14,12 +14,12 @@ type Iterable interface {
 }
 
 type ListIterator struct {
-	list      *Array
-	currIndex int                  // 当前指向的索引
+	list      List
+	currIndex int // 当前指向的索引
 }
 
 func (iterator *ListIterator) HasNext() bool {
-	return iterator.currIndex < iterator.list.size
+	return iterator.currIndex < iterator.list.Size()
 }
 
 func (iterator *ListIterator) Next() (interface{}, error) {
@@ -37,8 +37,12 @@ func (iterator *ListIterator) Remove() {
 }
 
 func (iterator *ListIterator) GetIndex() int {
-	return iterator.currIndex;
+	return iterator.currIndex
 }
 
-
-
+func NewListIterator(list List) *ListIterator {
+	return &ListIterator{
+		list:      list,
+		currIndex: 0,
+	}
+}

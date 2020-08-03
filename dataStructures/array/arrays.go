@@ -130,9 +130,5 @@ func (list *Array) checkIndex(index int) {
 
 // 获取迭代器
 func (list *Array) Iterator() Iterator {
-	iterator := &ListIterator{
-		currIndex: 0,
-		list:      list,
-	}
-	return iterator
+	return NewListIterator(list)
 }
