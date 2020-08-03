@@ -21,7 +21,7 @@ func TestArray_Add(t *testing.T) {
 		list.Add(i, v)
 	}
 	if list.Size() != len(tests) {
-		t.Errorf("Array lenght is %d but got %d ", len(tests), list.Size())
+		t.Errorf("Array lenght is %d but got %d！", len(tests), list.Size())
 	}
 }
 

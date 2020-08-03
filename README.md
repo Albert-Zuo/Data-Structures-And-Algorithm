@@ -24,7 +24,7 @@
 
 |**一、动态数组** | [Go源码 ](dataStructures/array) |
 | :--- | :---: |
-| 1-1 定义列表接口 | [arrays.go](dataStructures/array/arrays.go) |
+| 1-1 定义列表接口 | [arrays.go](dataStructures/array/list.go) |
 | 1-2 动态数组的实现 | [arrays.go](dataStructures/array/arrays.go) |
 | 1-3 数组迭代器的实现 | [iterator.go](dataStructures/array/iterator.go)|
 | 1-4 动态数组的使用与测试 | [arrays_test.go](dataStructures/array/arrays_test.go) |
