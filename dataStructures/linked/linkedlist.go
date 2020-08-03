@@ -105,7 +105,7 @@ func (list *LinkedList) Remove(index int) interface{} {
 		list.size--
 		return cur.e
 	}
-	for i := 1; i < index-1; i++ {
+	for i := 1; i < index; i++ {
 		cur = cur.next
 	}
 	e := cur.next.e

@@ -1,6 +1,7 @@
 package linked
 
 import (
+	"fmt"
 	"testing"
 )
 
@@ -72,7 +73,8 @@ func TestLinkedList_Remove(t *testing.T) {
 	}
 
 	for range tests {
-		list.RemoveLast()
+		e := list.Remove(list.Size() - 1)
+		fmt.Println(e)
 	}
 
 	if list.Size() != 0 {
