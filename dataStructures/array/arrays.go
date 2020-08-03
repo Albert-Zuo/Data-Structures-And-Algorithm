@@ -7,21 +7,21 @@ import (
 )
 
 type List interface {
-	Size() int                                // 获取 List 长度
+	Size() int // 获取 List 长度
 
-	Get(index int) (interface{}, error)       // 根据索引获取 element
+	Get(index int) (interface{}, error) // 根据索引获取 element
 
-	Set(index int, e interface{})             // 修改索引对应的值
+	Set(index int, e interface{}) // 修改索引对应的值
 
-	Add(index int, e interface{})             // 在索引位置添加新的 element
+	Add(index int, e interface{}) // 在索引位置添加新的 element
 
-	Append(e interface{})                     // 末尾添加 element
+	Append(e interface{}) // 末尾添加 element
 
-	Remove(index int) interface{}             // 根据索引删除 element
+	Remove(index int) interface{} // 根据索引删除 element
 
-	Clean()                                   // 清理数组内存
+	Clean() // 清理数组内存
 
-	Iterator() Iterator                       // 获取迭代器
+	Iterator() Iterator // 获取迭代器
 }
 
 type Array struct {
@@ -81,8 +81,8 @@ func (list *Array) Add(index int, e interface{}) {
 		list.resize(2 * list.size)
 	}
 
-	for i := list.size - 1; i >= index ; i++ {
-		list.data[i + 1] = list.data[i]
+	for i := list.size - 1; i >= index; i++ {
+		list.data[i+1] = list.data[i]
 	}
 	list.data[index] = e
 	list.size++
@@ -90,8 +90,7 @@ func (list *Array) Add(index int, e interface{}) {
 
 // 向所有元素后添加一个新元素
 func (list *Array) Append(e interface{}) {
-	list.data[list.size] = e
-	list.size++
+	list.Add(list.size, e)
 }
 
 // 从数组中删除index位置的元素, 返回删除的元素
@@ -107,7 +106,7 @@ func (list *Array) Remove(index int) interface{} {
 	// resize array ...
 	currLength := len(list.data)
 	if list.size == currLength/4 && currLength/2 != 0 {
-		list.resize(currLength / 2);
+		list.resize(currLength / 2)
 	}
 	return result
 }
