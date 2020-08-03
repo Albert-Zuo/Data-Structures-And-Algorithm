@@ -31,7 +31,7 @@ table th:nth-of-type(2) {
 
 </style>
 
-| 一、动态数组                   |            [Go源码](dataStructures/array)             |
+| 一、动态数组                   |            [Go源码 ](dataStructures/array)            |
 | ------------------------------ | :---------------------------------------------------: |
 | 1-1  Definition List interface |      [arrays.go](dataStructures/array/arrays.go)      |
 | 1-2  动态数组的实现            |      [arrays.go](dataStructures/array/arrays.go)      |
