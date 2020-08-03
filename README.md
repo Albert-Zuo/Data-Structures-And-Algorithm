@@ -21,6 +21,16 @@
 
 ### catalog
 
+<style>
+table th:first-of-type {
+    width: 70%;
+}
+table th:nth-of-type(2) {
+    width: 30%;
+}
+
+</style>
+
 | 一、动态数组                   |            [Go源码](dataStructures/array)             |
 | ------------------------------ | :---------------------------------------------------: |
 | 1-1  Definition List interface |      [arrays.go](dataStructures/array/arrays.go)      |
