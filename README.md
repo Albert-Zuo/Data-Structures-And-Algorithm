@@ -6,7 +6,7 @@
 
 ## Introduction
 
-本项目基于 go 语言实现常用的数据结构。后续将持续实现一些常用的算法。
+本项目基于 go 语言实现常用的数据结构，每个数据结构都有单元测试集，特别适合新手学习数据结构。后续也将持续实现一些常用的算法。
 
 感谢 **liuyubobobo** 老师在慕课网上推出的 Java 版实战课程[《玩转数据结构》。](https://coding.imooc.com/class/207.html) Java 版本的实现请参考老师的 Github 仓库地址: https://github.com/liuyubobobo/Play-with-Data-Structures 。
 
@@ -26,11 +26,9 @@
 
 - Golang Unit Test: 
 
-  - 在当前项目下，打开cmd命令行窗口
-
-
-  - 进入需要测试的数据结构模块下，例如：`cd  dataStructures/array`
-  - 输入命令：`go test -v`
+    - 在当前项目下，打开cmd命令行窗口
+    - 进入需要测试的数据结构模块下，例如：`cd  dataStructures/array`
+    - 输入命令：`go test -v`
 
 ### catalog
 
