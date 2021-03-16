@@ -3,7 +3,7 @@ package linked
 import (
 	"errors"
 	"fmt"
-	"github.com/Albert-Zuo/Data-Structures-And-Algorithm/dataStructures/array"
+	"github.com/Albert-Zuo/Data-Structures-And-Algorithm/structures/array"
 )
 
 type Node struct {
@@ -16,28 +16,28 @@ func (n *Node) String() string {
 }
 
 // LinkedList
-type LinkedList struct {
+type List struct {
 	head *Node
 	size int
 }
 
-func (list *LinkedList) Size() int {
+func (list *List) Size() int {
 	return list.size
 }
 
-func NewLinkedList() *LinkedList {
-	return &LinkedList{
+func NewLinkedList() *List {
+	return &List{
 		head: nil,
 		size: 0,
 	}
 }
 
 // 返回链表是否为空
-func (list *LinkedList) IsEmpty() bool {
+func (list *List) IsEmpty() bool {
 	return list.size == 0
 }
 
-func (list *LinkedList) Get(index int) (interface{}, error) {
+func (list *List) Get(index int) (interface{}, error) {
 	if index < 0 || index >= list.size {
 		return nil, errors.New(fmt.Sprintf("index is out of range, required range: [0, %d) but got %d", list.size, index))
 	}
@@ -49,7 +49,7 @@ func (list *LinkedList) Get(index int) (interface{}, error) {
 
 }
 
-func (list *LinkedList) Set(index int, e interface{}) {
+func (list *List) Set(index int, e interface{}) {
 	if index < 0 || index >= list.size {
 		panic("Set failed. Illegal index...")
 	}
@@ -60,7 +60,7 @@ func (list *LinkedList) Set(index int, e interface{}) {
 	cur.e = e
 }
 
-func (list *LinkedList) Add(index int, e interface{}) {
+func (list *List) Add(index int, e interface{}) {
 	if index < 0 || index > list.size {
 		panic("add failed, index is out of range")
 	}
@@ -81,17 +81,17 @@ func (list *LinkedList) Add(index int, e interface{}) {
 }
 
 // 在链表头添加新的元素e
-func (list *LinkedList) AddFirst(e interface{}) {
+func (list *List) AddFirst(e interface{}) {
 
 	list.head = &Node{e, nil}
 	list.size++
 }
 
-func (list *LinkedList) Append(e interface{}) {
+func (list *List) Append(e interface{}) {
 	list.Add(list.size, e)
 }
 
-func (list *LinkedList) Remove(index int) interface{} {
+func (list *List) Remove(index int) interface{} {
 	if index < 0 || index >= list.size {
 		panic(fmt.Sprintf(
 			"remove failed, index is out of range, "+
@@ -115,20 +115,20 @@ func (list *LinkedList) Remove(index int) interface{} {
 }
 
 // 从链表中删除第一个元素，返回删除的元素
-func (list *LinkedList) RemoveFirst() {
+func (list *List) RemoveFirst() {
 	list.Remove(0)
 }
 
 // 从链表中删除最后一个元素，返回删除的元素
-func (list *LinkedList) RemoveLast() {
+func (list *List) RemoveLast() {
 	list.Remove(list.size - 1)
 }
 
-func (list *LinkedList) Clean() {
+func (list *List) Clean() {
 	list.head = nil
 	list.size = 0
 }
 
-func (list *LinkedList) Iterator() array.Iterator {
+func (list *List) Iterator() array.Iterator {
 	return array.NewListIterator(list)
 }

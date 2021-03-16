@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/Albert-Zuo/Data-Structures-And-Algorithm/dataStructures/array"
+	"github.com/Albert-Zuo/Data-Structures-And-Algorithm/structures/array"
 )
 
 
@@ -20,7 +20,7 @@ func main() {
 		{"e", 4},
 		{"f", 5},
 	}
-	list := array.NewArrayByCapacity(-6)
+	list := array.NewArrayByCapacity(6)
 
 	for _, test := range tests {
 		list.Add(test.index, test.value)

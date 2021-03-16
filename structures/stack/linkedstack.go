@@ -1,8 +1,8 @@
 package stack
 
 import (
-	"github.com/Albert-Zuo/Data-Structures-And-Algorithm/dataStructures/array"
-	"github.com/Albert-Zuo/Data-Structures-And-Algorithm/dataStructures/linked"
+	"github.com/Albert-Zuo/Data-Structures-And-Algorithm/structures/array"
+	"github.com/Albert-Zuo/Data-Structures-And-Algorithm/structures/linked"
 )
 
 // 链表版本实现 栈

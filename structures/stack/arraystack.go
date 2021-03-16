@@ -3,7 +3,7 @@ package stack
 import (
 	"bytes"
 	"fmt"
-	"github.com/Albert-Zuo/Data-Structures-And-Algorithm/dataStructures/array"
+	"github.com/Albert-Zuo/Data-Structures-And-Algorithm/structures/array"
 )
 
 // 线性表版本实现 栈

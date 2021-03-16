@@ -33,10 +33,10 @@
 ### catalog
 
 
-|**一、线性表** | [Go源码 ](dataStructures/array) |
+|**一、线性表** | [Go源码 ](structures/array) |
 | :--- | :---: |
-| 1-1 定义列表接口 | [list.go](dataStructures/array/list.go) |
-| 1-2 动态数组的实现 | [arrays.go](dataStructures/array/arrays.go) |
-| 1-3 数组迭代器的实现 | [iterator.go](dataStructures/array/iterator.go)|
-| 1-4 动态数组的使用与测试 | [arrays_test.go](dataStructures/array/arrays_test.go) |
+| 1-1 定义列表接口 | [list.go](structures/array/list.go) |
+| 1-2 动态数组的实现 | [arrays.go](structures/array/arrays.go) |
+| 1-3 数组迭代器的实现 | [iterator.go](structures/array/iterator.go)|
+| 1-4 动态数组的使用与测试 | [arrays_test.go](structures/array/arrays_test.go) |
 
