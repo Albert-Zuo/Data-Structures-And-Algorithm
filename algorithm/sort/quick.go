@@ -5,22 +5,20 @@ import (
 )
 
 // 快排
-type quick struct {
+type arrayQuick struct {
 	Array
 }
 
-
-
-func NewQuickSort() Sorter {
-	return &quick{Array{Type: "quickSort"}}
+func NewArrayQuick() ArraySorter {
+	return &arrayQuick{Array{Type: "quickSort"}}
 }
 
-func(q *quick) Sort(s []int) {
-	q.slice = s
-	quickSort(q.slice[:], 0, len(q.slice)-1)
+func(a *arrayQuick) Sort(s []int) {
+	a.slice = s
+	arrayQuickSort(a.slice[:], 0, len(a.slice)-1)
 }
 
-func quickSort(s []int, l, r int) {
+func arrayQuickSort(s []int, l, r int) {
 	if l >= r {
 		return
 	}
@@ -43,32 +41,35 @@ func quickSort(s []int, l, r int) {
 			s[i], s[j] = s[j], s[i]
 		}
 	}
-	quickSort(s, l, i-1)
-	quickSort(s, j+1, r)
+	arrayQuickSort(s, l, i-1)
+	arrayQuickSort(s, j+1, r)
 }
 
+type linkedQuick struct {
+	LinkedList
+}
 
+func NewLinkedQuick() LinkedSorter {
+	return &linkedQuick{LinkedList{Type: "quickSort"}}
+}
 
+func (l linkedQuick) Sort(head *ListNode)  {
+	if head == nil {
+		panic("head is nil...")
+	}
+	tail := head
+	for tail.Next != nil {
+		tail =  tail.Next
+	}
+	linkListQuickSort(l.head, tail)
+}
 
-
-//head ,next := &sort.ListNode{Val: 44}, &sort.ListNode{Val: 6}
-//head.Next = next
-//
-//prev, tail := &sort.ListNode{Val: 17}, &sort.ListNode{Val: 15}
-//next.Next = &sort.ListNode{Val: 6, Next: prev}
-//prev.Next = tail
-//sort.QuickSortLinkList(head, tail)
-//curr := head
-//for i := 0; i < 5; i++ {
-//	fmt.Println(curr.Val)
-//	curr = curr.Next
-//}
-func QuickSortLinkList(head, tail *ListNode) {
+func linkListQuickSort(head, tail *ListNode) {
 
 	if !reflect.DeepEqual(head, tail) && !reflect.DeepEqual(head.Next, tail) {
 		mid := partition(head, tail)
-		QuickSortLinkList(head, mid)
-		QuickSortLinkList(mid.Next, tail)
+		linkListQuickSort(head, mid)
+		linkListQuickSort(mid.Next, tail)
 
 	}
 }

@@ -1,24 +1,31 @@
 package sort
 
-
 import (
 	"bytes"
 	"fmt"
 	"strconv"
 )
 
-type Sorter interface {
-	Sort(s []int)
+type ArraySorter interface {
+	Sort([]int)
 }
 
 type Array struct {
-	Type string
+	Type  string
 	slice []int
 }
 
+func (a Array) String() string {
+	return fmt.Sprintf("%s: %v", a.Type, a.slice)
+}
+
+type LinkedSorter interface {
+	Sort(head *ListNode)
+}
+
 type ListNode struct {
-	Val            int
-	Next           *ListNode
+	Val        int
+	Next, Prev *ListNode
 }
 
 type LinkedList struct {
@@ -26,14 +33,9 @@ type LinkedList struct {
 	head *ListNode
 }
 
-func (a Array) String() string {
-	return fmt.Sprintf("%s: %v", a.Type ,a.slice)
-}
-
-
 func (l LinkedList) String() string {
 	var (
-		b bytes.Buffer
+		b    bytes.Buffer
 		curr = l.head
 	)
 	b.WriteString(l.Type + ": [")
@@ -46,4 +48,8 @@ func (l LinkedList) String() string {
 	}
 	b.WriteString("]")
 	return b.String()
+}
+
+func swap(s []int, i, j int) {
+	s[i], s[j] = s[j], s[i]
 }

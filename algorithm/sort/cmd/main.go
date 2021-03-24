@@ -6,9 +6,10 @@ import (
 )
 
 var (
-	sortList = []sort.Sorter {
-		sort.NewBubbleSort(),
-		sort.NewQuickSort(),
+	sortList = []sort.ArraySorter {
+		sort.NewArrayBubble(),
+		sort.NewArrayQuick(),
+		sort.NewArrayInsert(),
 	}
 )
 
