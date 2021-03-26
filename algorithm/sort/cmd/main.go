@@ -10,6 +10,7 @@ var (
 		sort.NewArrayBubble(),
 		sort.NewArrayQuick(),
 		sort.NewArrayInsert(),
+		sort.NewArrayShell(),
 	}
 )
 
