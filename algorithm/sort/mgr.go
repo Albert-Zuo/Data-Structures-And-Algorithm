@@ -14,7 +14,7 @@ type SorterMgr struct {
 }
 
 var (
-	Mgr = &SorterMgr{
+	mgr = &SorterMgr{
 		m: make(map[string]Sorter),
 		f: func(currType string, sortedSlice []int) {
 			fmt.Println(fmt.Sprintf("%s: %v", currType, sortedSlice))
@@ -29,18 +29,18 @@ func (s *SorterMgr) register(typeName string, sort Sorter) {
 }
 
 func RegisterSorter(typeName string, sort Sorter) {
-	Mgr.register(typeName, sort)
+	mgr.register(typeName, sort)
 	KeySet[typeName] = struct{}{}
 }
 
 func MgrF(f func(currType string, sortedSlice []int)) {
-	Mgr.mu.Lock()
-	defer Mgr.mu.Unlock()
-	Mgr.f = f
+	mgr.mu.Lock()
+	defer mgr.mu.Unlock()
+	mgr.f = f
 }
 
 func DoSort(typeName string, slice []int) error {
-	return Mgr.do(typeName, slice)
+	return mgr.do(typeName, slice)
 }
 
 func (s *SorterMgr) do(typeName string, slice []int) (err error) {
@@ -51,10 +51,10 @@ func (s *SorterMgr) do(typeName string, slice []int) (err error) {
 		return
 	}
 	sorter.Sort(slice)
-	Mgr.mu.Lock()
+	mgr.mu.Lock()
 
 	defer func() {
-		Mgr.mu.Unlock()
+		mgr.mu.Unlock()
 		if err := recover(); err != nil {
 			err = errors.New(fmt.Sprintf("panic err: %s", err))
 		}
