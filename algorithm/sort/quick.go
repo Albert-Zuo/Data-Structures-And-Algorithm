@@ -4,21 +4,21 @@ import (
 	"reflect"
 )
 
+func init() {
+	RegisterSorter("quickSort", &quick{})
+}
+
 // 快排
-type arrayQuick struct {
-	Array
+type quick struct {}
+
+
+
+func(q *quick) Sort(s []int) {
+
+	quickSort(s, 0, len(s)-1)
 }
 
-func NewArrayQuick() ArraySorter {
-	return &arrayQuick{Array{Type: "quickSort"}}
-}
-
-func(a *arrayQuick) Sort(s []int) {
-	a.slice = s
-	arrayQuickSort(a.slice[:], 0, len(a.slice)-1)
-}
-
-func arrayQuickSort(s []int, l, r int) {
+func quickSort(s []int, l, r int) {
 	if l >= r {
 		return
 	}
@@ -41,17 +41,14 @@ func arrayQuickSort(s []int, l, r int) {
 			s[i], s[j] = s[j], s[i]
 		}
 	}
-	arrayQuickSort(s, l, i-1)
-	arrayQuickSort(s, j+1, r)
+	quickSort(s, l, i-1)
+	quickSort(s, j+1, r)
 }
 
 type linkedQuick struct {
 	LinkedList
 }
 
-func NewLinkedQuick() LinkedSorter {
-	return &linkedQuick{LinkedList{Type: "quickSort"}}
-}
 
 func (l linkedQuick) Sort(head *ListNode)  {
 	if head == nil {

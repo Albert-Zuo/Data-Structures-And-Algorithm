@@ -1,19 +1,18 @@
 package sort
 
-type arrayInsert struct {
-	Array
+func init() {
+	RegisterSorter("insertSort", &insert{})
 }
 
-func NewArrayInsert() ArraySorter {
-	return &arrayInsert{Array{Type: "insertSort"}}
+// 插入排序
+type insert struct {}
+
+
+func (i *insert) Sort(s []int) {
+	insertSort(s)
 }
 
-func (i *arrayInsert) Sort(s []int) {
-	i.slice = s
-	arrayBubbleSort(s)
-}
-
-func arrayInsertSort(s []int) {
+func insertSort(s []int) {
 	n := len(s)
 	if n < 2 {
 		return

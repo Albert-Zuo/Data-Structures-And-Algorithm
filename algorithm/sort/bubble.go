@@ -1,20 +1,18 @@
 package sort
 
+func init() {
+	RegisterSorter("bubbleSort", &bubble{})
+}
+
 // bubble 冒泡排序
-type arrayBubble struct {
-	Array
+type bubble struct {}
+
+
+func (b *bubble) Sort(s []int) {
+	bubbleSort(s)
 }
 
-func NewArrayBubble() ArraySorter {
-	return &arrayBubble{Array{Type: "bubbleSort"}}
-}
-
-func (b *arrayBubble) Sort(s []int) {
-	b.slice = s
-	arrayBubbleSort(b.slice)
-}
-
-func arrayBubbleSort(s []int) {
+func bubbleSort(s []int) {
 	for i := 0; i < len(s); i++ {
 		for j := 0; j < len(s) - i - 1; j++ {
 			if s[j] > s[j+1] {

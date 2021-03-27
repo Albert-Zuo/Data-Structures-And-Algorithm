@@ -1,21 +1,19 @@
 package sort
 
-
-// 快排
-type arrayShell struct {
-	Array
+func init() {
+	RegisterSorter("shellSort", &shell{})
 }
 
-func NewArrayShell() ArraySorter {
-	return &arrayShell{Array{Type: "shellSort"}}
+// 希尔排序
+type shell struct {}
+
+
+
+func(a *shell) Sort(s []int) {
+	shellSort(s)
 }
 
-func(a *arrayShell) Sort(s []int) {
-	a.slice = s
-	arrayShellSort(a.slice[:])
-}
-
-func arrayShellSort(s []int) {
+func shellSort(s []int) {
 	n := len(s)
 	h := 1
 	for h < n/3 { //寻找合适的间隔h

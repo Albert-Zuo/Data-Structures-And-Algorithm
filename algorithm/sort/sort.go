@@ -2,26 +2,13 @@ package sort
 
 import (
 	"bytes"
-	"fmt"
 	"strconv"
 )
 
-type ArraySorter interface {
+type Sorter interface {
 	Sort([]int)
 }
 
-type Array struct {
-	Type  string
-	slice []int
-}
-
-func (a Array) String() string {
-	return fmt.Sprintf("%s: %v", a.Type, a.slice)
-}
-
-type LinkedSorter interface {
-	Sort(head *ListNode)
-}
 
 type ListNode struct {
 	Val        int
