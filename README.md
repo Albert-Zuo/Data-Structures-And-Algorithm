@@ -69,3 +69,5 @@
 | 2-3 哈希算法         |   [hash.go](algorithm/balance/hash.go)    |
 |                      |                                           |
 
+
+### 避免使用类似 `base`，`common` 或 `util` 的包名称
